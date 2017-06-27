@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="me.wucj.emtity.Monitor">
+
+	<class name="Record" table="Record">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="url_ip" column="url_ip"></property>
+		<property name="date" column="date" ></property>
+		<property name="Event" column="event"></property>
+	</class>
+</hibernate-mapping>

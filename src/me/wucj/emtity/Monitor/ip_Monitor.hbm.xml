@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="me.wucj.emtity.Monitor">
+
+	<class name="ip_Monitor" table="ip_Monitor">
+
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="url_ip" column="url_ip"></property>
+		<!-- 状态是否正常，0为正常1为不正常 -->
+		<property name="date" column="date"></property>
+		<property name="state" column="state"></property>
+		<!-- 0,//0为未发送1为已发送 -->
+		<property name="Send_status" column="Send_status" ></property>
+		<property name="Get_Post" column="get_post"></property>
+		<property name="email"></property>
+		<property name="Send_Get_post"></property>
+	</class>
+</hibernate-mapping>

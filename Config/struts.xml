@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "struts-2.5.dtd" >
+<struts>
+
+	<!-- 配置拦截器 -->
+	<package name="struts" extends="json-default">
+
+		<interceptors>
+			<interceptor name="loginInterceptor" class="me.wucj.tools.LoginInterceptor"></interceptor>
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="loginInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="myStack"></default-interceptor-ref>
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+		<action name="login" class="loginaction" method="login">
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="success" type="json">
+				<param name="root">json</param>
+			</result>
+			<result name="input">/index.jsp</result>
+		</action>
+		<action name="main" class="me.wucj.Login.Action.mainAction"
+			method="main">
+			<result name="success">/WEB-INF/jsp/Admin/main.jsp</result>
+			<result name="input">/index.jsp</result>
+		</action>
+		<action name="main_*" class="monitorAction" method="main_{1}">
+			<result name="input">/index.jsp</result>
+		</action>
+
+	</package>
+
+</struts>
